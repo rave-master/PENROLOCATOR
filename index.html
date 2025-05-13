@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>PENRO Personnel Locator</title>
+  <link rel="icon" href="https://i.imgur.com/ZRlEx8f.png" type="image/x-icon">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+  <script type="module" src="script.js"></script> 
+</head>
+
+<body class="bg-gray-100 text-gray-800">
+  <div class="container mx-auto p-6">
+    <h1 class="text-4xl font-bold text-center mb-8 animate-bounce">PENRO Personnel Locator</h1>
+
+    <!-- Welcome Message -->
+    <p id="welcome-message" class="hidden text-center text-green-700 font-semibold mb-4"></p>
+
+    <!-- Auth -->
+    <div id="auth-section" class="mb-6 text-center space-y-4">
+      <input id="email" type="email" placeholder="Email" class="border px-4 py-2 rounded shadow w-full max-w-xs">
+      <input id="password" type="password" placeholder="Password" class="border px-4 py-2 rounded shadow w-full max-w-xs">
+      <div class="space-x-2">
+        <button onclick="register()" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Register</button>
+        <button onclick="login()" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">Login</button>
+        <button onclick="logout()" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">Logout</button>
+      </div>
+    </div>
+
+    <!-- Profile Form -->
+    <div id="profile-form" class="mb-6 bg-white p-4 rounded shadow-lg hidden">
+      <h2 class="text-xl font-semibold mb-4">Profile Setup</h2>
+      <input id="name" type="text" placeholder="Full Name" class="w-full mb-2 px-4 py-2 border rounded">
+      <input id="designation" type="text" placeholder="Designation" class="w-full mb-2 px-4 py-2 border rounded">
+      <input id="photo" type="file" accept="image/*" class="w-full mb-4 border rounded px-4 py-2">
+      <button onclick="submitProfile()" class="bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded w-full">Submit Profile</button>
+    </div>
+
+    <!-- Status Form -->
+    <div id="status-form" class="mb-6 bg-white p-4 rounded shadow-lg hidden">
+      <h2 class="text-xl font-semibold mb-4">Weekly Status</h2>
+      <div class="space-y-4">
+        <label for="day" class="block font-medium">Select Day:</label>
+        <select id="day" class="w-full border rounded px-2 py-2">
+          <option value="Monday">Monday</option>
+          <option value="Tuesday">Tuesday</option>
+          <option value="Wednesday">Wednesday</option>
+          <option value="Thursday">Thursday</option>
+          <option value="Friday">Friday</option>
+        </select>
+
+        <label for="status" class="block font-medium">Select Status:</label>
+        <select id="status" class="w-full border rounded px-2 py-2">
+          <option value="Office">Office</option>
+          <option value="Work From Home">Work From Home</option>
+          <option value="On Leave">On Leave</option>
+          <option value="Out of Office">Out of Office</option>
+          <option value="Training">Training</option>
+          <option value="On-Field">On-Field</option>
+        </select>
+
+        <button onclick="updateStatus()" class="mt-4 w-full bg-yellow-500 hover:bg-yellow-600 text-white py-2 px-4 rounded">Update Status</button>
+      </div>
+    </div>
+
+    <!-- Embedded Video -->
+    <div class="mb-6">
+      <iframe id="video-player" width="100%" height="315" src="https://www.youtube.com/embed/nd5V0irz_os" frameborder="0" allowfullscreen class="rounded shadow"></iframe>
+    </div>
+
+    <!-- Dashboard Link -->
+    <div id="go-dashboard" class="text-center hidden">
+      <a href="dashboard.html" class="inline-block mt-4 bg-indigo-600 hover:bg-indigo-800 text-white py-2 px-6 rounded shadow">
+        View Staff Weekly Status
+      </a>
+    </div>
+  </div>
+</body>
+</html>

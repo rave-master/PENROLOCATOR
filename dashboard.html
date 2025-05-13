@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>DENR PENRO Personnel</title>
+  <link rel="icon" href="https://i.imgur.com/ZRlEx8f.png" type="image/x-icon">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/flowbite"></script>
+  <script type="module" src="dashboard.js"></script>
+</head>
+
+<body class="bg-gray-100 text-gray-800">
+  <div class="container mx-auto p-6">
+    <div class="flex justify-between items-center mb-4">
+      <h1 class="text-3xl font-bold">PENRO Personnel Weekly Status</h1>
+      <div id="datetime" class="text-gray-600 font-medium ml-auto mr-4"></div>
+      <button onclick="logout()" class="bg-red-500 hover:bg-red-600 text-white font-semibold py-2 px-4 rounded">Logout</button>
+    </div>
+
+    <script>
+      function updateDateTime() {
+        const now = new Date();
+        const options = {
+          weekday: 'long',
+          year: 'numeric',
+          month: 'long',
+          day: 'numeric',
+          hour: '2-digit',
+          minute: '2-digit',
+          second: '2-digit'
+        };
+        document.getElementById('datetime').textContent = now.toLocaleDateString('en-US', options);
+      }
+      setInterval(updateDateTime, 1000);
+      updateDateTime();
+    </script>
+
+    <input id="search" type="text" placeholder="Search staff by name..." oninput="loadDashboard()" class="mb-4 px-4 py-2 border rounded w-full font-sans text-gray-700">
+
+    <div class="overflow-auto">
+      <table class="table-auto w-full text-center text-sm border border-gray-200 font-sans">
+        <thead class="bg-gray-200 text-gray-700">
+          <tr>
+            <th class="px-4 py-4 font-semibold">Photo</th>
+            <th class="px-4 py-2 font-semibold">Name</th>
+            <th class="px-4 py-2 font-semibold">Designation</th>
+            <th class="px-4 py-2 font-semibold">Mon</th>
+            <th class="px-4 py-2 font-semibold">Tue</th>
+            <th class="px-4 py-2 font-semibold">Wed</th>
+            <th class="px-4 py-2 font-semibold">Thu</th>
+            <th class="px-4 py-2 font-semibold">Fri</th>
+          </tr>
+        </thead>
+        <tbody id="staff-table"></tbody>
+      </table>
+    </div>
+  </div>
+</body>
+</html>
